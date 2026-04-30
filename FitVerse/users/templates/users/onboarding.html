@@ -1,0 +1,24 @@
+{% extends 'users/base.html' %}
+{% block title %}Setup — FitVerse{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ request.user.first_name }}! Let's set up your profile.</h2>
+
+<form method="POST">
+  {% csrf_token %}
+
+  <label>Age</label>
+  {{ form.age }}
+
+  <label>Height (cm)</label>
+  {{ form.height }}
+
+  <label>Weight (kg)</label>
+  {{ form.weight }}
+
+  <label>Workout Level</label>
+  {{ form.workout_level }}
+
+  <button type="submit">Save & Continue</button>
+</form>
+{% endblock %}
