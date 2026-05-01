@@ -1,0 +1,41 @@
+{% extends 'users/base.html' %}
+{% block title %}Dashboard — FitVerse{% endblock %}
+
+{% block content %}
+<h2>Welcome back, {{ request.user.email }}! 👋</h2>
+<p>Here's your health overview for today.</p>
+
+<div>
+  <div>
+    <div>👟</div>
+    <h3>Steps Today</h3>
+    <p>{{ fit_data.steps }}</p>
+  </div>
+
+  <div>
+    <div>🩸</div>
+    <h3>Blood Pressure</h3>
+    <p>{{ fit_data.blood_pressure }} mmHg</p>
+  </div>
+
+  <div>
+    <div>❤️</div>
+    <h3>Heart Rate</h3>
+    <p>{{ fit_data.heart_rate|default:"No data" }} bpm</p>
+  </div>
+
+  <div>
+    <div>😴</div>
+    <h3>Sleep</h3>
+    <p>{{ fit_data.sleep_hours }} hours last night</p>
+  </div>
+
+  <div>
+    <div>🏃</div>
+    <h3>Physical Activity</h3>
+    <p>{{ fit_data.physical_activity }} minutes active</p>
+  </div>
+</div>
+
+
+{% endblock %}
