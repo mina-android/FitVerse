@@ -2,9 +2,6 @@
 
 All notable changes to FitVerse are documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/).
-
 ---
 
 ## [1.0.0] — 2026-06-20
@@ -75,12 +72,3 @@ Initial release.
 ### Fixed
 - Accelerometer-based rep counting in live workouts now uses the same four-stage adaptive pipeline as the step counter, replacing an earlier simplified threshold approach that produced inconsistent rep counts
 
-### Security
-- Firestore rules block writes to any document containing `passwordHash`, `token`, `refreshToken`, `secret`, or `credential` fields
-- Firebase Auth UID is read fresh from `FirebaseAuth.instance.currentUser` at every Firestore call rather than cached, preventing stale-UID writes
-
-### Known Limitations
-- Gemini API key ships as a hardcoded constant in source — must be moved to `--dart-define` or a secrets vault before any public release
-- No automated test coverage yet (`flutter_test` is configured but unused)
-- iOS is not yet configured; Health Connect calls have no HealthKit equivalent
-- Exercise preview animations depend on a third-party GitHub CDN with no local caching or fallback
