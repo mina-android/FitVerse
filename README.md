@@ -1,6 +1,5 @@
 <div align="center">
 <img src="assets/images/app_icon.png" alt="FitVerse Logo" width="200" height="200" style="border-radius: 24px"/>
-
 # FitVerse
  
 ### Your AI-driven personal coaching ecosystem
@@ -270,12 +269,6 @@ keytool -list -v -keystore /path/to/your/release.keystore -alias your_alias
    const _kGeminiKey = 'AIza...your-actual-key...';
 ```
  
-> ⚠️ **Security Note:** Move the key off this hardcoded constant before shipping to production — use `--dart-define` or a secrets vault:
-> ```bash
-> flutter run --dart-define=GEMINI_KEY=AIza...
-> ```
-> Then read it with: `const key = String.fromEnvironment('GEMINI_KEY');`
->
 > End users can also supply their own key from inside the app — see **Settings → Gemini API Key**.
  
 ---
@@ -484,15 +477,16 @@ coverage/
 Code style: providers are `ChangeNotifier`s accessed via `context.read<X>()` for one-time calls and `context.watch<X>()` for reactive rebuilds; derive counters (`totalWorkouts`, `totalCalories`) from the live session list, never from the cached model fields; `flutter analyze` must pass.
  
 ---
- 
+
 ## License
- 
-MIT License — see [LICENSE](LICENSE) for full text.
-Copyright © 2026 [Your Name or Organization]
- 
+
+MIT License — see [LICENSE](LICENSE) for full text.  
+Copyright © 2026 [Mina Android](https://github.com/mina-android)
+
 ---
- 
+
 <div align="center">
-Made with ❤️, Flutter, and a little help from Gemini · [**⬆ Back to top**](#fitverse)
- 
+
+Made with ❤️ and Flutter · [**More projects by Mina Android**](https://github.com/mina-android) · [**⬆ Back to top**](#fitverse)
+
 </div>
