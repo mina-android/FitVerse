@@ -83,8 +83,6 @@ Most fitness apps either lock real coaching behind a subscription or give you a 
  
 ## Screenshots
  
-> Place your screenshots in `screenshots/` with the filenames below.
- 
 | Onboarding | Sign In | Profile Setup |
 |------------|---------|----------------|
 | ![Onboarding](screenshots/onboarding.png) | ![Sign In](screenshots/sign_in.png) | ![Profile Setup](screenshots/profile_setup.png) |
