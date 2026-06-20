@@ -462,7 +462,6 @@ coverage/
 - [x] Bring-your-own Gemini API key
 - [ ] iOS support (HealthKit equivalents for the Health Connect pipeline)
 - [ ] Automated test coverage (`flutter_test` is wired up, no tests yet)
-- [ ] Move the built-in Gemini key off a hardcoded constant before any public release
 - [ ] Local caching/fallback for exercise preview GIFs (currently CDN-dependent)
 - [ ] Home screen widget (today's steps / streak)
 - [ ] Localisation / multiple languages
