@@ -1,0 +1,76 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+    id "dev.flutter.flutter-gradle-plugin"
+    // Processes google-services.json and generates values.xml for Firebase.
+    // Must be listed AFTER com.android.application per Google's documentation.
+    id "com.google.gms.google-services"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode =
+        localProperties.getProperty("flutter.versionCode") ?: "1"
+
+def flutterVersionName =
+        localProperties.getProperty("flutter.versionName") ?: "1.0"
+
+android {
+    namespace "com.fitverse.app"
+
+    compileSdk 36
+
+    // NDK upgraded: 27.0.12077973 → 28.2.13676358
+    // Required by the jni plugin (highest NDK version among all plugins).
+    ndkVersion "28.2.13676358"
+
+    defaultConfig {
+        applicationId "com.ma.fitverse"
+
+        minSdkVersion 26
+        targetSdkVersion 36
+
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+
+        coreLibraryDesugaringEnabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+flutter {
+    source "../.."
+}
+
+dependencies {
+    implementation "androidx.multidex:multidex:2.0.1"
+
+    implementation "com.google.android.gms:play-services-auth:21.2.0"
+
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.1.4"
+}

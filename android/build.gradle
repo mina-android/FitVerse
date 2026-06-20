@@ -1,0 +1,29 @@
+// ─── android/build.gradle (root) ─────────────────────────────────────────────
+//
+// Keep this file lean.  The Flutter Gradle Plugin (applied via settings.gradle)
+// already registers the engine Maven repository for every subproject.  Adding
+// it here a second time is harmless, but adding extra repository-resolution
+// logic that races with the plugin's own afterEvaluate hooks caused transient
+// "package io.flutter.* not found" failures in earlier iterations of this file.
+// ─────────────────────────────────────────────────────────────────────────────
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = '../build'
+
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

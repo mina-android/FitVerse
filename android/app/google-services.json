@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "769133616537",
+    "project_id": "fitverse-6513c",
+    "storage_bucket": "fitverse-6513c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769133616537:android:0fd65461e4ba1a8d33c708",
+        "android_client_info": {
+          "package_name": "com.ma.fitverse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769133616537-39bj3rspphf15vqqbfql9eoevqhvp33u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ma.fitverse",
+            "certificate_hash": "e33f65e3397d7836b5469360be82e354d1c1dc34"
+          }
+        },
+        {
+          "client_id": "769133616537-4uo0fnnqhne8508drgeo8jk03pig0jqj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByl43D9_G5BrJ1tAygaa2Ni-VmsPicSMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769133616537-4uo0fnnqhne8508drgeo8jk03pig0jqj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

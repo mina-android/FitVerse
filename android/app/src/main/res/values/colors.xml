@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="statusBarColor">#0F1C1E</color>
+    <color name="navigationBarColor">#0F1C1E</color>
+    <color name="primaryColor">#00897B</color>
+    <color name="backgroundColor">#0F1C1E</color>
+    <color name="ic_launcher_background">#000000</color>
+</resources>

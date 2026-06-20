@@ -1,0 +1,70 @@
+rules_version = '2';
+
+// FitVerse Firestore Security Rules
+//
+// Structure:
+//   /users/{uid}                       — user profile
+//   /users/{uid}/sessions/{id}         — workout sessions
+//   /users/{uid}/health_daily/{date}   — daily health snapshots (HR, SpO2, steps, calories)
+//
+// Rules:
+//   • Only the authenticated owner can read or write their own data.
+//   • No auth field names (password, token, etc.) are allowed in documents.
+//   • All other paths are blocked.
+//
+// Deploy: firebase deploy --only firestore:rules
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /users/{uid} {
+
+      // Owner-only access
+      allow read  : if request.auth != null && request.auth.uid == uid;
+      allow write : if request.auth != null
+                    && request.auth.uid == uid
+                    && !request.resource.data.keys().hasAny([
+                         'passwordHash', 'password', 'token',
+                         'refreshToken', 'secret', 'credential'
+                       ]);
+
+      match /sessions/{sessionId} {
+        allow read, write : if request.auth != null && request.auth.uid == uid;
+      }
+
+      // Daily health snapshots — HR, SpO2, steps, calories.
+      // Doc ID is YYYY-MM-DD (one document per day, upserted via merge).
+      // No credential-class fields are stored here; the write guard is a
+      // belt-and-suspenders check consistent with the parent document rule.
+      match /health_daily/{date} {
+        allow read  : if request.auth != null && request.auth.uid == uid;
+        allow write : if request.auth != null
+                      && request.auth.uid == uid
+                      && !request.resource.data.keys().hasAny([
+                           'passwordHash', 'password', 'token',
+                           'refreshToken', 'secret', 'credential'
+                         ]);
+      }
+
+      // AI Coach chat history — one document per message.
+      // Doc ID is the ChatMessage UUID; fields: id, content, isUser, timestamp.
+      // Content is user-generated — no credential-class fields are permitted.
+      match /chat_messages/{messageId} {
+        allow read   : if request.auth != null && request.auth.uid == uid;
+        allow create : if request.auth != null
+                       && request.auth.uid == uid
+                       && request.resource.data.keys().hasAll(['id', 'content', 'isUser', 'timestamp'])
+                       && !request.resource.data.keys().hasAny([
+                            'passwordHash', 'password', 'token',
+                            'refreshToken', 'secret', 'credential'
+                          ]);
+        allow delete : if request.auth != null && request.auth.uid == uid;
+      }
+    }
+
+    // Block everything else
+    match /{document=**} {
+      allow read, write : if false;
+    }
+  }
+}
