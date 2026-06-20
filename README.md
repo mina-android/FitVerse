@@ -13,7 +13,7 @@
  
 **FitVerse** combines real-time biometric tracking, an accelerometer-powered live form coach, a 93-exercise workout library, and a Gemini-powered AI coach — synced to the cloud so your progress follows you across devices.
  
-[**Download APK**](#installation) · [**Features**](#features) · [**Screenshots**](#screenshots) · [**Build It**](#building-from-source)
+[**Download APK**](#installation) · [**Features**](#features) · [**Website**](https://fitverse-web-d1n.pages.dev/) · [**Screenshots**](#screenshots) · [**Build It**](#building-from-source) 
  
 </div>
 ---
