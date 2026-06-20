@@ -487,6 +487,6 @@ Copyright © 2026 [Mina Android](https://github.com/mina-android)
 
 <div align="center">
 
-Made with ❤️ and Flutter · [**More projects by Mina Android**](https://github.com/mina-android) · [**⬆ Back to top**](#fitverse)
+Made with ❤️ and Flutter · [**More projects by Mina Android**](https://github.com/mina-android) · 
 
 </div>
