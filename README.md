@@ -1,5 +1,5 @@
 <div align="center">
-<img src="assets/images/app_icon.png" alt="FitVerse Logo" width="120" height="120" style="border-radius: 24px"/>
+<img src="assets/images/app_icon.png" alt="FitVerse Logo" width="120" height="120" 
 
 # FitVerse
  
