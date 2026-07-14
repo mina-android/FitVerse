@@ -329,10 +329,10 @@ Code style: providers are `ChangeNotifier`s accessed via `context.read<X>()` for
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
-Copyright © 2026 [Your Name or Organization]
+Copyright © 2026 [Mina Android](https://github.com/mina-android)
 
 <div align="center">
 
-Made with ❤️, Flutter, and Gemini · [**More projects**](https://github.com/YourUsername)
+Made with ❤️ and Flutter · [**More projects**](https://github.com/mina-android)
 
 </div>
