@@ -42,22 +42,14 @@ Most fitness apps either lock real coaching behind a subscription or give you a 
 
 ## 📸 Screenshots
 
-<!-- 3 columns reads best on GitHub. Delete rows you don't need. -->
-| Onboarding | Sign In | Profile Setup |
-|------------|---------|----------------|
-| ![Onboarding](screenshots/onboarding.png) | ![Sign In](screenshots/sign_in.png) | ![Profile Setup](screenshots/profile_setup.png) |
-
-| Home | Workouts | Muscle Exercises |
-|------|----------|-------------------|
-| ![Home](screenshots/home.png) | ![Workouts](screenshots/workouts.png) | ![Muscle Exercises](screenshots/muscle_exercises.png) |
-
-| Live Tracking | Preset Workout | AI Coach |
-|----------------|------------------|----------|
-| ![Live Tracking](screenshots/live_tracking.png) | ![Preset Workout](screenshots/preset_workout.png) | ![AI Coach](screenshots/ai_coach.png) |
-
-| Profile | Settings | Health Connect |
-|---------|----------|------------------|
-| ![Profile](screenshots/profile.png) | ![Settings](screenshots/settings.png) | ![Health Connect](screenshots/health_connect.png) |
+<p align="center">
+  <img src="screenshots/home.png" width="30%" alt="Home" />
+  <img src="screenshots/workouts.png" width="30%" alt="Workouts" />
+  <img src="screenshots/live_tracking.png" width="30%" alt="Live Tracking" />
+  <img src="screenshots/muscle_exercises.png" width="30%" alt="Muscle Exercises" />
+  <img src="screenshots/ai_coach.png" width="30%" alt="AI Coach" />
+  <img src="screenshots/health_connect.png" width="30%" alt="Health Connect" />
+</p>
 
 ---
 
