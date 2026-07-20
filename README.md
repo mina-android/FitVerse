@@ -42,22 +42,9 @@ Most fitness apps either lock real coaching behind a subscription or give you a 
 
 ## 📸 Screenshots
 
-<!-- 3 columns reads best on GitHub. Delete rows you don't need. -->
-| Onboarding | Sign In | Profile Setup |
-|------------|---------|----------------|
-| ![Onboarding](screenshots/onboarding.png) | ![Sign In](screenshots/sign_in.png) | ![Profile Setup](screenshots/profile_setup.png) |
-
-| Home | Workouts | Muscle Exercises |
-|------|----------|-------------------|
-| ![Home](screenshots/home.png) | ![Workouts](screenshots/workouts.png) | ![Muscle Exercises](screenshots/muscle_exercises.png) |
-
-| Live Tracking | Preset Workout | AI Coach |
-|----------------|------------------|----------|
-| ![Live Tracking](screenshots/live_tracking.png) | ![Preset Workout](screenshots/preset_workout.png) | ![AI Coach](screenshots/ai_coach.png) |
-
-| Profile | Settings | Health Connect |
-|---------|----------|------------------|
-| ![Profile](screenshots/profile.png) | ![Settings](screenshots/settings.png) | ![Health Connect](screenshots/health_connect.png) |
+| Onboarding | Sign In | Profile Setup | Home Dashboard |
+|------------|---------|---------------|----------------|
+| ![Onboarding](screenshots/onboarding.jpg) | ![Sign In](screenshots/sign_in.jpg) | ![Profile Setup](screenshots/profile_setup.jpg) | ![Home](screenshots/home.jpg) |
 
 ---
 
