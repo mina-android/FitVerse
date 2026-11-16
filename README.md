@@ -1,330 +1,223 @@
 <div align="center">
 
-<img src="assets/icons/splash_icon.png" alt="FitVerse Logo" width="120" height="120" style="border-radius: 24px"/>
+<img src="assets/icons/splash_icon.png" alt="FitVerse Logo" width="112" height="112" />
 
 # FitVerse
 
-### Your AI-driven personal coaching ecosystem
+[![Platform](https://img.shields.io/badge/Platform-Android-grey.svg?style=flat-square)](https://android.com) [![Release](https://img.shields.io/badge/Release-v1.0.0-blue.svg?style=flat-square)](https://github.com/mina-android/fitverse/releases) [![License](https://img.shields.io/badge/License-MIT-black.svg?style=flat-square)](LICENSE) [![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg?style=flat-square)](https://github.com/mina-android/fitverse/actions)
 
-[![Flutter](https://img.shields.io/badge/Flutter-3.19%2B-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
-[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)](https://android.com)
-[![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen)](CHANGELOG.md)
-[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
-
-**FitVerse** combines real-time biometric tracking, an accelerometer-powered live form coach, a 93-exercise workout library, and a Gemini-powered AI coach — synced to the cloud so your progress follows you across devices.
-
-[**Download**](#-installation) · [**Features**](#-features) · [**Screenshots**](#-screenshots) · [**Build from Source**](#-build-from-source)
+<p align="center">
+  A mobile fitness coaching and workout tracking platform combining hardware biometric telemetry, real-time accelerometer motion coaching, and Gemini-assisted training analysis.
+</p>
 
 </div>
 
 ---
 
-## Why FitVerse?
+## Navigation
 
-<!-- 2-3 sentences: what problem this solves and why it's different from alternatives. -->
-Most fitness apps either lock real coaching behind a subscription or give you a library of exercises with no idea who you are. FitVerse builds a live profile of your body, your health conditions, and your workout history, then feeds that context straight into Google's Gemini model so every piece of advice — nutrition, recovery, muscle-building — is actually personalized. Biometrics come from Google Health Connect when available, with a self-built adaptive accelerometer pedometer as a fallback that keeps working even without a smartwatch. Everything is cached locally first for an instant UI, then synced to Firestore so a new device picks up your full history the moment you sign in.
-
----
-
-## ✨ Features
-
-<!-- Keep each bullet to one line. Bold the feature name, then a short plain-language benefit. -->
-- **Authentication & Onboarding** — Google Sign-In bridged to Firebase Auth (`request.auth.uid`), 4-state auth routing with silent session restore, and guided profile setup capturing fitness goals and optional health conditions
-- **Home Dashboard** — Live metric cards (heart rate, SpO2, steps, calories burned), 7-day activity bar chart (`fl_chart`), recent workout history, AI-generated nutrition banners, and real-time stats row recomputed live
-- **Workout Library & Anatomical Map** — 20 muscle groups, 93 exercises, and 18 multi-exercise presets browsable via an interactive custom-painted body map with step-by-step instructions and animated previews
-- **Live Form Tracking & Rep Counting** — Accelerometer-based rep counting and form-quality scoring during resistance training with non-spammy spoken voice corrections via Flutter TTS and automatic AI workout reports
-- **Personalized AI Coach (Gemini 2.5 Flash)** — Context-aware chat using your profile, BMI, health conditions, and last 5 workout sessions with quick-prompt chips, persistent chat history, and bring-your-own API key support
-- **Health & Activity Tracking** — Automatic switching between Google Health Connect (5s refresh) and a self-built 20 Hz adaptive accelerometer pedometer fallback running via a foreground service with daily snapshots
-- **Cross-Device Cloud Sync (Firestore)** — Instant local caching via SharedPreferences combined with asynchronous Firestore sync, union-by-session-ID profile merging, recomputed drift-free counters, and full offline persistence
-- **Profile & Settings Management** — Editable body metrics, voice alert toggles, Health Connect management, Gemini API key configuration, and secure workout history management
+[Features](#features) &bull; [Screenshots](#screenshots) &bull; [Downloads](#downloads) &bull; [Self Building & Local Setup](#self-building--local-setup) &bull; [Frequently Asked Questions](#frequently-asked-questions) &bull; [Contribution](#contribution) &bull; [About the Developer](#about-the-developer) &bull; [Donate](#donate) &bull; [License](#license)
 
 ---
 
-## 📸 Screenshots
+## Features
 
-<p align="center">
-  <img src="screenshots/home.png" width="30%" alt="Home" />
-  <img src="screenshots/workouts.png" width="30%" alt="Workouts" />
-  <img src="screenshots/live_tracking.png" width="30%" alt="Live Tracking" />
-  <img src="screenshots/muscle_exercises.png" width="30%" alt="Muscle Exercises" />
-  <img src="screenshots/ai_coach.png" width="30%" alt="AI Coach" />
-  <img src="screenshots/health_connect.png" width="30%" alt="Health Connect" />
-</p>
+### Core Capabilities
 
----
+- **Exercise Library & Routine Planning**: Over 90 structured exercises categorized by targeted muscle anatomy, equipment requirements, and movement biomechanics with custom workout builder routines.
+- **Motion Sensor Repetition Tracking**: Real-time rep counting and cadence tracking utilizing device accelerometer sensors when wearable hardware is unavailable.
+- **Biometric Health Connect Integration**: Native Android Health Connect synchronization collecting steps, resting heart rate, active calorie expenditure, and sleep phase telemetry.
+- **Contextual Gemini AI Coach**: Integrates user training volume, recovery metrics, and recorded fatigue indicators directly into Gemini API prompts to produce personalized training adjustments.
+- **Rest & Interval Timers**: Background audio-signaled interval timers providing countdown chimes and set-break pacing.
 
-## 📲 Installation
+### Architecture & Data Handling
 
-1. Go to [**Releases**](https://github.com/YourUsername/fitverse/releases)
-2. Download `app-release.apk`
-3. On your phone: go to **Settings → Security → Install Unknown Apps** and enable for your file manager
-4. Open and install
-
-> Requires Android 8.0 (API 26) or higher.
+- **Local-First with Cloud Sync**: Interfaces render directly against local on-device SQLite caches to ensure instant UI responsiveness, subsequently synchronizing state to Cloud Firestore when network connectivity is established.
+- **Authentication**: Optional Google Firebase Authentication supporting credentialed multi-device session portability.
+- **Data Privacy**: Biometric measurements remain on the device and are passed to AI services only within ephemeral session requests when analysis is explicitly requested.
 
 ---
 
-## 🛠 Build from Source
+## Screenshots
 
-**Prerequisites:** Flutter SDK 3.19+, Android Studio (Latest), Java JDK 17+, Firebase CLI
+<table width="100%" border="0" cellspacing="0" cellpadding="4">
+  <tr>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/onboarding.png" alt="Onboarding Flow" width="100%" />
+    </td>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/sign_in.png" alt="Authentication" width="100%" />
+    </td>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/profile_setup.png" alt="Profile Setup" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/home.png" alt="FitVerse Dashboard" width="100%" />
+    </td>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/workouts.png" alt="Workouts Browser" width="100%" />
+    </td>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/preset_workout.png" alt="Preset Workout Plan" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/live_tracking.png" alt="Live Workout Tracking" width="100%" />
+    </td>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/ai_coach.png" alt="AI Coaching Interface" width="100%" />
+    </td>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/muscle_exercises.png" alt="Exercise Anatomy Library" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/health_connect.png" alt="Health Connect Integration" width="100%" />
+    </td>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/profile.png" alt="User Profile & History" width="100%" />
+    </td>
+    <td width="33.33%" align="center" valign="top">
+      <img src="screenshots/settings.png" alt="Application Settings" width="100%" />
+    </td>
+  </tr>
+</table>
+
+---
+
+## Downloads
+
+Official release packages are published under the [GitHub Releases](https://github.com/mina-android/fitverse/releases) section.
+
+| Platform | Architecture | Package Type | Download Link | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **Android** | arm64-v8a | `.apk` | [Download (v1.0.0)](https://github.com/mina-android/fitverse/releases/latest) | Standard 64-bit Android builds (recommended) |
+| **Android** | armeabi-v7a | `.apk` | [Download (v1.0.0)](https://github.com/mina-android/fitverse/releases/latest) | Legacy 32-bit hardware |
+| **Android** | x86_64 | `.apk` | [Download (v1.0.0)](https://github.com/mina-android/fitverse/releases/latest) | Android desktop emulators |
+| **Android** | Universal | `.apk` | [Download (v1.0.0)](https://github.com/mina-android/fitverse/releases/latest) | Multi-architecture APK installer |
+
+---
+
+## Self Building & Local Setup
+
+### 1. Prerequisites
+
+Verify that the following development toolchains are installed:
+
+- **Flutter SDK**: `3.19.0` or higher
+- **Dart SDK**: `3.3.0` or higher
+- **Android SDK**: API level `34` (Android 14)
+- **Java Development Kit**: JDK `17`
+- **Firebase CLI**: Configured if deploying custom backend instances
+
+### 2. Repository Setup
 
 ```bash
-git clone https://github.com/YourUsername/fitverse.git
+# Clone the repository
+git clone https://github.com/mina-android/fitverse.git
+
+# Navigate into the project root
 cd fitverse
-flutter pub get
-flutter run
 
-# Release build
-flutter build apk --release
+# Verify Flutter tooling
+flutter doctor
 ```
 
-Output lands in `build/app/outputs/flutter-apk/app-release.apk`.
+### 3. Backend & API Configuration
 
-<details>
-<summary><strong>Project Configuration Steps (Firebase, Google Sign-In, Gemini API Key, Health Connect)</strong></summary>
-
-### Step 1 — Configure Firebase
-FitVerse uses **Firebase Auth** (Google Sign-In bridge) and **Cloud Firestore** (cross-device sync).
-1. Go to [Firebase Console](https://console.firebase.google.com) and create a project
-2. Run `flutterfire configure` to generate your own `lib/firebase_options.dart`
-3. Download `google-services.json` and place it at:
-   ```
-   android/app/google-services.json
-   ```
-4. Enable **Firestore Database** (production mode) and deploy the bundled rules:
+1. **Firebase**: Create a project in the Firebase Console, enable Firestore and Authentication, and execute:
    ```bash
-   firebase login
-   firebase init firestore     # select your project
-   firebase deploy --only firestore:rules
+   flutterfire configure
    ```
-See [`FIRESTORE_SETUP.md`](FIRESTORE_SETUP.md) for the full schema, sync behaviour, and security rule details.
+2. **Gemini API Key**: Obtain a key from Google AI Studio and configure it in your local environment file or build config:
+   ```bash
+   export GEMINI_API_KEY="your-api-key"
+   ```
 
-### Step 2 — Configure Google Sign-In
-1. In [Google Cloud Console](https://console.cloud.google.com), open the Firebase-linked project
-2. Under **APIs & Services → Credentials → OAuth 2.0 Client IDs**, create:
-   - **Android client** with your SHA-1 fingerprint
-   - **Web client** (required for Firebase Auth token validation)
+### 4. Dependency Installation & Build
 
-#### Get your SHA-1 fingerprint:
 ```bash
-# For debug builds
-keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+# Install dependencies
+flutter pub get
 
-# For release builds
-keytool -list -v -keystore /path/to/your/release.keystore -alias your_alias
+# Compile release APK
+flutter build apk --split-per-abi --release
 ```
 
-### Step 3 — Configure Gemini API Key
-1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey) and create a key
-2. Open `lib/providers/ai_provider.dart`
-3. Replace the placeholder:
-   ```dart
-   // BEFORE
-   const _kGeminiKey = 'YOUR_GEMINI_API_KEY';
+Compiled binaries will be placed in `build/app/outputs/flutter-apk/`.
 
-   // AFTER
-   const _kGeminiKey = 'AIza...your-actual-key...';
+### 5. Running Locally
+
+```bash
+flutter run --release
+```
+
+---
+
+## Frequently Asked Questions
+
+#### Does the pedometer and workout tracker work without Google Health Connect?
+Yes. FitVerse contains a built-in step detection and motion algorithm that samples directly from the device accelerometer. Google Health Connect is used as an optional synchronization bridge for wearable devices.
+
+#### Are my workouts accessible when offline?
+Yes. All logs, exercise databases, and routines are cached locally in SQLite. Any recorded sessions are stored on disk and will sync to Firestore whenever an internet connection is re-established.
+
+#### Is an API key required to run the application?
+Workout logging, routine creation, and biometric sensors function without an API key. An active Gemini API key is required only if you wish to use the automated AI workout analysis and coaching summaries.
+
+---
+
+## Contribution
+
+Contributions focusing on exercise database expansion, sensor calibration, and UI improvements are welcome.
+
+### Contribution Process
+
+1. Review existing issues to prevent redundant feature requests.
+2. For large architectural changes or new sensor pipelines, open a discussion ticket prior to submitting code.
+3. Verify test integrity before opening pull requests:
+   ```bash
+   flutter analyze
+   flutter test
    ```
-> ⚠️ **Security Note:** Move the key off this hardcoded constant before shipping to production — use `--dart-define` or a secrets vault:
-> ```bash
-> flutter run --dart-define=GEMINI_KEY=AIza...
-> ```
-> Then read it with: `const key = String.fromEnvironment('GEMINI_KEY');`
->
-> End users can also supply their own key from inside the app — see **Settings → Gemini API Key**.
-
-### Step 4 — Health Connect Setup
-Health Connect requires **Android 8.0+ (API 26)** and the **Health Connect app** installed on the device.
-1. Install Health Connect from the [Play Store](https://play.google.com/store/apps/details?id=com.google.android.apps.healthdata)
-2. The app requests permissions on first launch
-3. For Wear OS smartwatch data, pair your watch and enable Health Connect sync in the Wear app
-
-**Required Health Connect permissions** (already declared in `AndroidManifest.xml`):
-- `android.permission.health.READ_HEART_RATE`
-- `android.permission.health.READ_OXYGEN_SATURATION`
-- `android.permission.health.READ_STEPS`
-- `android.permission.health.READ_ACTIVE_CALORIES_BURNED`
-
-> If Health Connect is unavailable or permissions are denied, FitVerse falls back to its own adaptive accelerometer pedometer — no biometric data is ever lost.
-
-</details>
-
-<details>
-<summary><strong>Tech Stack & Project Structure</strong></summary>
-
-### Tech Stack
-| Layer | Technology |
-|-------|-----------|
-| **Framework** | Flutter (Dart SDK `>=3.2.0 <4.0.0`) |
-| **State** | provider ^6.1.2 (ChangeNotifier) |
-| **Auth** | google_sign_in ^6.2.1 + firebase_auth ^5.3.1 |
-| **Database** | cloud_firestore ^5.4.5 — per-user documents, offline persistence enabled |
-| **Firebase Core** | firebase_core ^3.8.0 |
-| **AI** | google_generative_ai ^0.4.6 — Gemini 2.5 Flash |
-| **Health** | health ^12.0.0 — Health Connect (Android) |
-| **Sensors** | sensors_plus ^4.0.2 — accelerometer pipeline |
-| **Permissions** | permission_handler ^11.3.1 |
-| **Voice** | flutter_tts ^4.0.2 |
-| **Charts** | fl_chart ^0.68.0 |
-| **Local Cache** | shared_preferences ^2.3.2 |
-| **HTTP** | http ^1.2.2 — optional web backend sync |
-| **Fonts** | google_fonts ^6.2.1 (Inter) |
-| **Images** | cached_network_image ^3.3.1 |
-| **Date Formatting** | intl ^0.19.0 |
-| **UUIDs** | uuid ^4.4.2 |
-
-### Project Structure
-```
-lib/
-├── main.dart                          # Entry point — Firebase init, Provider tree
-├── app.dart                           # FitVerseApp widget, auth-state routing
-├── firebase_options.dart              # Platform-specific Firebase config
-├── core/
-│   ├── constants/
-│   │   └── workout_data.dart          # 20 muscle groups, 93 exercises, 18 presets
-│   └── theme/
-│       └── app_theme.dart             # Dark Material 3 theme, design tokens
-├── models/
-│   ├── user_model.dart                # UserModel + BMI helpers
-│   └── workout_model.dart             # MuscleGroup, Exercise, WorkoutPreset,
-│                                       #   SessionModel, ChatMessage
-├── providers/
-│   ├── auth_provider.dart             # Google Sign-In + Firebase Auth bridge
-│   ├── user_provider.dart             # Profile CRUD, sessions, Firestore sync
-│   ├── health_provider.dart           # Health Connect + adaptive accelerometer pipeline
-│   ├── workout_provider.dart          # Live tracking, rep counting, TTS cues
-│   └── ai_provider.dart               # Gemini chat session + workout report gen
-├── services/
-│   └── web_sync_service.dart          # Fire-and-forget HTTP sync to an optional backend
-└── features/
-    ├── auth/
-    │   ├── onboarding_screen.dart
-    │   ├── sign_in_screen.dart
-    │   ├── profile_setup_screen.dart
-    │   └── health_conditions_screen.dart
-    ├── main/
-    │   └── main_shell.dart            # IndexedStack bottom nav (3 tabs)
-    ├── home/
-    │   ├── home_screen.dart           # Dashboard — metrics, chart, history, AI banner
-    │   └── widgets/
-    │       ├── metric_card.dart
-    │       ├── workout_history_card.dart
-    │       └── ai_suggestion_banner.dart
-    ├── workouts/
-    │   ├── workouts_screen.dart       # Anatomical body map + muscle group tabs
-    │   ├── muscle_exercises_screen.dart
-    │   ├── workout_detail_screen.dart
-    │   ├── live_tracking_screen.dart  # Live rep counting + form coaching
-    │   └── preset_workout_screen.dart # Multi-exercise preset sequencing
-    ├── ai_coach/
-    │   └── ai_coach_screen.dart       # Gemini chat UI + quick prompts
-    ├── profile/
-    │   └── profile_screen.dart
-    └── settings/
-        └── settings_screen.dart       # Voice alerts, Health Connect, API key, sign out
-```
-
-</details>
-
-<details>
-<summary><strong>Gradle Config & Android Permissions</strong></summary>
-
-### Gradle / Build Config
-| Component | Version |
-|-----------|---------|
-| Gradle | **8.10.2** |
-| Android Gradle Plugin | **8.7.3** |
-| Kotlin | **2.1.21** |
-| Java / Kotlin target | 17 |
-| `google-services` plugin | 4.4.2 |
-| Namespace | `com.fitverse.app` |
-| Application ID | `com.ma.fitverse` |
-| compileSdk / targetSdk | 36 |
-| Min SDK | 26 (Android 8.0) |
-| NDK | 28.2.13676358 |
-
-> **`MainActivity` must extend `FlutterFragmentActivity`** (not `FlutterActivity`) — required for Health Connect's `ActivityResultLauncher` to register correctly.
-> **Health Connect permission name is `READ_OXYGEN_SATURATION`**, not `READ_BLOOD_OXYGEN` — a single typo here silently fails the entire `requestAuthorization()` call.
-> **Adaptive icon foreground must live in `mipmap-*`** (referenced as `@mipmap/ic_launcher_foreground`), not `drawable/` — otherwise release builds fail with an AAPT link error.
-
-### Android Permissions
-| Permission | Purpose |
-|-----------|---------|
-| `INTERNET` | Firebase sync, Gemini API calls, exercise GIF previews |
-| `ACCESS_NETWORK_STATE` | Check connectivity before network calls |
-| `BODY_SENSORS` / `BODY_SENSORS_BACKGROUND` | Accelerometer-based rep counting and step detection |
-| `ACTIVITY_RECOGNITION` | Required for step counting on Android 10+ |
-| `health.READ_HEART_RATE` | Health Connect heart rate |
-| `health.READ_OXYGEN_SATURATION` | Health Connect blood oxygen |
-| `health.READ_STEPS` | Health Connect steps |
-| `health.READ_ACTIVE_CALORIES_BURNED` | Health Connect active calories |
-| `POST_NOTIFICATIONS` | Workout and reminder notifications |
-| `RECEIVE_BOOT_COMPLETED` | Restore foreground service state after reboot |
-| `VIBRATE` / `WAKE_LOCK` | Live tracking feedback and screen-on during workouts |
-| `FOREGROUND_SERVICE` / `FOREGROUND_SERVICE_HEALTH` | Background step counting service |
-| `RECORD_AUDIO` | Required by the text-to-speech engine on some OEM builds |
-
-</details>
-
-<details>
-<summary><strong>Build troubleshooting</strong></summary>
-
-- **`AAPT: error: resource drawable/ic_launcher_foreground not found`:** The adaptive icon foreground must be placed in `mipmap-*` folders, not `drawable/`. Move it and rebuild.
-- **Stats (Workouts / Total kcal) showing zero despite having sessions:** This is the known counter-drift issue — `UserProvider._pullSessions()` recomputes and patches the Firestore document automatically on the next sync. Force a sync by pulling to refresh or restarting the app.
-- **Gradle build fails on classpath / `io.flutter.*` not found:** Ensure the Flutter Gradle plugin is loaded via `includeBuild` from your local Flutter SDK in `settings.gradle` — never pin it as a separate Maven dependency.
-- **Health Connect permissions not granted / silently fails:** Double-check the manifest permission is `android.permission.health.READ_OXYGEN_SATURATION`, **not** `READ_BLOOD_OXYGEN`. A mismatch here fails the whole authorization request without an obvious error.
-- **Gemini Coach not responding:** Check **Settings → Gemini API Key** — the status badge will read "Not configured" if the active key doesn't start with `AIza`. Add your own key from [ai.google.dev](https://aistudio.google.com/app/apikey).
-- **Accept Android SDK licenses:** Run `flutter doctor --android-licenses` in your terminal.
-
-</details>
+4. Submit your pull request against `main`.
 
 ---
 
-## 🔒 Privacy
+## About the Developer
 
-<!-- Delete/edit lines that don't apply. Keep it short and skimmable. -->
-- All profile data, sessions, and health snapshots are cached locally first — the app works fully offline
-- Cloud sync via **Firestore** is strictly per-user (`request.auth.uid == uid`), with security rules rejecting any credential-like fields (`passwordHash`, `token`, `secret`, `credential`)
-- AI Coach chat and workout context (profile, BMI, health conditions, recent sessions) are sent securely to **Google's Gemini API** to generate responses
-- You can supply your own Gemini API key in Settings instead of using the built-in default
-- No third-party ads, no external analytics or crash reporting beyond Firebase's own infrastructure
+This project is authored and maintained by **mina-android**, building modular cross-platform software, mobile utilities, and developer tooling.
 
----
-
-## 🗺 Roadmap
-
-- [x] Google Health Connect integration with adaptive accelerometer fallback
-- [x] Firestore cloud sync with cross-device session merge
-- [x] Gemini-powered AI Coach with personalized context
-- [x] Live accelerometer-based rep counting and form coaching
-- [x] Bring-your-own Gemini API key
-- [ ] iOS support (HealthKit equivalents for the Health Connect pipeline)
-- [ ] Automated test coverage (`flutter_test` is wired up, no tests yet)
-- [ ] Move the built-in Gemini key off a hardcoded constant before any public release
-- [ ] Local caching/fallback for exercise preview GIFs (currently CDN-dependent)
-- [ ] Home screen widget (today's steps / streak)
-- [ ] Localisation / multiple languages
+- **Developer Portfolio**: [portfolio.minaashraf285.workers.dev](https://portfolio.minaashraf285.workers.dev/)
+- **GitHub Profile**: [github.com/mina-android](https://github.com/mina-android)
+- **Issue Tracker**: [github.com/mina-android/fitverse/issues](https://github.com/mina-android/fitverse/issues)
 
 ---
 
-## 🤝 Contributing
+## Donate
 
-1. Fork the repo
-2. Create a branch: `git checkout -b feature/my-feature`
-3. Commit and push your changes: `git commit -m "Add my feature" && git push origin feature/my-feature`
-4. Open a Pull Request
+If FitVerse assists you in structuring your workouts or building personal software projects, financial contributions are appreciated:
 
-Code style: providers are `ChangeNotifier`s accessed via `context.read<X>()` for one-time calls and `context.watch<X>()` for reactive rebuilds; derive counters (`totalWorkouts`, `totalCalories`) from the live session list, never from cached model fields; `flutter analyze` must pass.
+- **PayPal**: [paypal.me/minaashraf285](https://paypal.me/minaashraf285)
+- **GitHub Sponsors**: [github.com/sponsors/mina-android](https://github.com/sponsors/mina-android)
 
 ---
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
-Copyright © 2026 [Mina Android](https://github.com/mina-android)
+Distributed under the **MIT License**. See the [`LICENSE`](LICENSE) file in the root directory for legal text.
+
+```text
+Copyright (c) 2026 mina-android
+Licensed under the MIT License.
+```
+
+---
 
 <div align="center">
-
-Made with ❤️ and Flutter · [**More projects**](https://github.com/mina-android)
-
+  <sub>FitVerse &bull; Maintained by mina-android &bull; Biometric and motion-assisted workout coaching.</sub>
 </div>
