@@ -4,7 +4,7 @@
 
 # FitVerse
 
-[![Platform](https://img.shields.io/badge/Platform-Android-grey.svg?style=flat-square)](https://android.com) [![Release](https://img.shields.io/badge/Release-v1.0.0-blue.svg?style=flat-square)](https://github.com/mina-android/fitverse/releases) [![License](https://img.shields.io/badge/License-MIT-black.svg?style=flat-square)](LICENSE) [![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg?style=flat-square)](https://github.com/mina-android/fitverse/actions)
+[![Platform](https://img.shields.io/badge/Platform-Android-grey.svg?style=flat-square)](https://android.com) [![Release](https://img.shields.io/badge/Release-v1.0.0-blue.svg?style=flat-square)](https://github.com/mina-android/fitverse/releases) [![License](https://img.shields.io/badge/License-GPLv3-black.svg?style=flat-square)](LICENSE) [![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg?style=flat-square)](https://github.com/mina-android/fitverse/actions)
 
 <p align="center">
   A mobile fitness coaching and workout tracking platform combining hardware biometric telemetry, real-time accelerometer motion coaching, and Gemini-assisted training analysis.
@@ -209,15 +209,9 @@ If FitVerse assists you in structuring your workouts or building personal softwa
 
 ## License
 
-Distributed under the **MIT License**. See the [`LICENSE`](LICENSE) file in the root directory for legal text.
+Distributed under the **GNU General Public License v3.0 (GPL-3.0)**. See the [`LICENSE`](LICENSE) file in the root directory for legal text.
 
 ```text
 Copyright (c) 2026 mina-android
-Licensed under the MIT License.
+Licensed under the GNU General Public License v3.0.
 ```
-
----
-
-<div align="center">
-  <sub>FitVerse &bull; Maintained by mina-android &bull; Biometric and motion-assisted workout coaching.</sub>
-</div>
