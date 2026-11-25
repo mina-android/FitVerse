@@ -4,7 +4,7 @@
 
 # FitVerse
 
-[![Platform](https://img.shields.io/badge/Platform-Android-grey.svg?style=flat-square)](https://android.com) [![Release](https://img.shields.io/badge/Release-v1.0.0-blue.svg?style=flat-square)](https://github.com/mina-android/fitverse/releases) [![License](https://img.shields.io/badge/License-GPLv3-black.svg?style=flat-square)](LICENSE) [![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg?style=flat-square)](https://github.com/mina-android/fitverse/actions)
+[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=flat&logo=android&logoColor=white)](https://developer.android.com) [![Framework](https://img.shields.io/badge/Framework-Flutter-02569B?style=flat&logo=flutter&logoColor=white)](https://flutter.dev) [![Release](https://img.shields.io/badge/Release-v1.0.0-blue?style=flat)](https://github.com/mina-android/FitVerse/releases) [![License](https://img.shields.io/badge/License-GPL--3.0-black?style=flat)](LICENSE)
 
 <p align="center">
   A mobile fitness coaching and workout tracking platform combining hardware biometric telemetry, real-time accelerometer motion coaching, and Gemini-assisted training analysis.
@@ -16,7 +16,7 @@
 
 ## Navigation
 
-[Features](#features) &bull; [Screenshots](#screenshots) &bull; [Downloads](#downloads) &bull; [Self Building & Local Setup](#self-building--local-setup) &bull; [Frequently Asked Questions](#frequently-asked-questions) &bull; [Contribution](#contribution) &bull; [About the Developer](#about-the-developer) &bull; [Donate](#donate) &bull; [License](#license)
+[Features](#features) &bull; [Screenshots](#screenshots) &bull; [Downloads](#downloads) &bull; [Self Building & Local Setup](#self-building--local-setup) &bull; [Contribution](#contribution) &bull; [About the Developer](#about-the-developer) &bull; [Donate](#donate) &bull; [License](#license)
 
 ---
 
@@ -158,19 +158,6 @@ flutter run --release
 
 ---
 
-## Frequently Asked Questions
-
-#### Does the pedometer and workout tracker work without Google Health Connect?
-Yes. FitVerse contains a built-in step detection and motion algorithm that samples directly from the device accelerometer. Google Health Connect is used as an optional synchronization bridge for wearable devices.
-
-#### Are my workouts accessible when offline?
-Yes. All logs, exercise databases, and routines are cached locally in SQLite. Any recorded sessions are stored on disk and will sync to Firestore whenever an internet connection is re-established.
-
-#### Is an API key required to run the application?
-Workout logging, routine creation, and biometric sensors function without an API key. An active Gemini API key is required only if you wish to use the automated AI workout analysis and coaching summaries.
-
----
-
 ## Contribution
 
 Contributions focusing on exercise database expansion, sensor calibration, and UI improvements are welcome.
@@ -190,20 +177,17 @@ Contributions focusing on exercise database expansion, sensor calibration, and U
 
 ## About the Developer
 
-This project is authored and maintained by **mina-android**, building modular cross-platform software, mobile utilities, and developer tooling.
+This project is authored and maintained by **mina-android**, focused on developing transparent, local-first utilities and privacy-conscious software.
 
-- **Developer Portfolio**: [portfolio.minaashraf285.workers.dev](https://portfolio.minaashraf285.workers.dev/)
-- **GitHub Profile**: [github.com/mina-android](https://github.com/mina-android)
-- **Issue Tracker**: [github.com/mina-android/fitverse/issues](https://github.com/mina-android/fitverse/issues)
+[![Portfolio](https://img.shields.io/badge/Portfolio-mina--android-181717?style=flat&logo=cloudflare&logoColor=white)](https://portfolio.minaashraf285.workers.dev/) [![GitHub](https://img.shields.io/badge/GitHub-mina--android-181717?style=flat&logo=github&logoColor=white)](https://github.com/mina-android) [![Issues](https://img.shields.io/badge/Issues-Report%20a%20Bug-181717?style=flat&logo=github&logoColor=white)](https://github.com/mina-android/FitVerse/issues)
 
 ---
 
 ## Donate
 
-If FitVerse assists you in structuring your workouts or building personal software projects, financial contributions are appreciated:
+Development and maintenance of this software are independent and self-supported. If this project helps you in your workflow, consider supporting development:
 
-- **PayPal**: [paypal.me/minaashraf285](https://paypal.me/minaashraf285)
-- **GitHub Sponsors**: [github.com/sponsors/mina-android](https://github.com/sponsors/mina-android)
+[![PayPal](https://img.shields.io/badge/PayPal-Donate-00457C?style=flat&logo=paypal&logoColor=white)](https://paypal.me/minaashraf285) [![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-Sponsor-EA4AAA?style=flat&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/mina-android) [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?style=flat&logo=kofi&logoColor=white)](https://ko-fi.com/minaashraf285)
 
 ---
 

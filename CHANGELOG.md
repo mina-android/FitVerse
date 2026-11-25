@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 Initial release.
 
+### Changed
+- **README & GitHub Releases**: Removed the Frequently Asked Questions section and navigation link from `README.md`, standardized shields.io badges (`style=flat`) and pinned Developer/Donate badge bars to match `README_TEMPLATE.md`, and aligned GitHub release notes (`v1.0.0`) with the `IT-Box` release note format.
+
 ### Added
 
 **Authentication & Onboarding**
